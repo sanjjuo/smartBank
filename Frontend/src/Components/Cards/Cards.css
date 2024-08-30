@@ -1,0 +1,27 @@
+.cards-section{
+    padding: 50px 40px;
+}
+
+.cards-section .row{
+    margin-bottom: 70px;
+}
+
+.cards-section .card-details h1{
+    font-weight: 700;
+}
+
+.card-details p{
+    font-size: 17px;
+}
+
+.cards-section .card-image{
+    height: 300px;
+    width: 100%;
+}
+
+.cards-section .card-image img{
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

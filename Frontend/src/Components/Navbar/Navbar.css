@@ -1,0 +1,48 @@
+.navbar {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 100%;
+}
+
+.navbar-banner {
+    background-color: transparent;
+}
+
+.navbar .navbar-nav {
+    gap: 20px;
+}
+
+.navbar-banner .nav-link {
+    color: #fff;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.navbar-banner .nav-link:hover {
+    color: #ffbd39;
+}
+
+.navbar-banner .navbar-nav2 .nav-link {
+    border: 2px solid #fff;
+    border-radius: 20px;
+    padding: 5px 30px;
+}
+
+
+/* navbar-other */
+
+
+.navbar-other .nav-link {
+    color: #000;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.navbar-other .nav-link:hover {
+    color: #ffbd39;
+}
+
+.navbar-other .internet-banking {
+    border: 2px solid #000;
+    border-radius: 20px;
+    padding: 5px 10px;
+}

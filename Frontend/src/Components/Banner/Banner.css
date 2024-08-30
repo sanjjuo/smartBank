@@ -1,0 +1,30 @@
+.banner-section {
+    margin-top: -60px;
+    z-index: -1;
+    background: linear-gradient(rgba(4, 32, 84, 0.773), rgba(4, 32, 84, 0.734)),
+        url("../public/background.jpg") no-repeat center center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+}
+
+.banner-section .headings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.banner-section h1 {
+    color: #fff;
+    font-weight: 700;
+    font-size: 70px;
+    margin: 0;
+}
+
+.banner-section p {
+    color: #fff;
+    font-size: 25px;
+    margin: 0;
+}

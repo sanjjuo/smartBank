@@ -1,0 +1,135 @@
+.payment-section{
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment-section .full-container{
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: -180px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 80%;
+}
+
+/* easy-payment */
+
+.payment-section .easy-payment{
+    background-color: #d6f0ff;
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 20px;
+}
+
+.easy-payment .contents{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.easy-payment .contents .headings-btn h2{
+    font-weight: 600;
+}
+
+.easy-payment .contents .headings-btn p{
+    font-size: 17px;
+    margin: 0;
+}
+
+.easy-payment .contents .headings-btn button{
+    margin-top: 30px;
+    background-color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+}
+
+.easy-payment .contents .headings-btn button:hover{
+    background-color: #000;
+    color: #dbdfff;
+}
+
+.easy-payment .contents .touch-icon .icon{
+    font-size: 140px;
+    color: rgb(192, 228, 255);;
+}
+
+/* cashback */
+
+.cashback{
+    position: relative;
+    background-color: #d4ffe5;
+    border-radius: 20px;
+    padding: 40px;
+}
+
+
+.cashback .headings{
+    padding-bottom: 50px;
+}
+
+.cashback .headings h2{
+    font-weight: 600;
+}
+
+.cashback .headings p{
+    font-size: 17px;
+    margin: 0;
+}
+
+.cashback .cashback-icon{
+    position: absolute;
+    bottom: -28px;
+    left: 30%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    width: 40%;
+    padding: 10px;
+}
+
+.cashback-icon .icon{
+    font-size: 50px;
+}
+
+
+/* abroad-payment */
+
+.abroad-payment{
+    position: relative;
+    background-color: #dbdfff;
+    border-radius: 20px;
+    padding: 40px;
+}
+
+.abroad-payment .headings{
+    padding-bottom: 50px;
+}
+
+.abroad-payment .headings h2{
+    font-weight: 600;
+}
+
+.abroad-payment .headings p{
+    font-size: 17px;
+    margin: 0;
+}
+
+.abroad-payment .global-icon{
+    position: absolute;
+    bottom: -28px;
+    left: 30%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    width: 40%;
+    padding: 10px;
+}
+
+.global-icon .icon{
+    font-size: 50px;
+}

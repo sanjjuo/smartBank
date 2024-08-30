@@ -1,0 +1,56 @@
+.check-balance{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.check-balance .account-details {
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    width: 60%;
+}
+
+.check-balance h2{
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+.account-details .input-group{
+    margin-bottom: 10px;
+    display: flex;
+}
+
+.account-details .input-group label{
+    font-weight: 600;
+    flex: 0 0 150px;
+}
+
+.account-details .input-group input,
+.account-details .input-group select{
+    flex: 1;
+    border: none;
+    background-color: #eeeeee;
+    padding: 10px;
+    border-radius: 10px !important;
+    color: #777;
+}
+
+.account-details .input-group input:focus{
+    outline: none;
+}
+
+.account-details button{
+    border: none;
+    margin-top: 30px;
+    width: 100%;
+    background-color: #C41E3A;
+    color: #fff;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.account-details button:hover{
+    background-color: #000;
+}
