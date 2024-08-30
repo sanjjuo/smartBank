@@ -1,16 +1,47 @@
-import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import "../UserModal/UserModal.css"
-import { Link } from 'react-router-dom';
+import "../UserModal/UserModal.css";
+import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import axios from "axios";
 
 function UserModal(props) {
 
-    const [modals, setModals] = useState("Login")
+    const {setModal, url, token, setToken, ...modalProps} =props
+    const navigate = useNavigate()
+
+    const [modals, setModals] = useState("Login");
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleNameChange = (e) => setName(e.target.value);
+    const handleEmailChange = (e) => setEmail(e.target.value);
+    const handlePasswordChange = (e) => setPassword(e.target.value);
+
+    const onLogin = async (e) => {
+        e.preventDefault();
+        let newUrl = url;
+        if (modals === "Login") {
+            newUrl += "/api/auth/login";
+        } else {
+            newUrl += "/api/auth/register";
+        }
+
+        const response = await axios.post(newUrl, { name, email, password });
+        if (response.data.success) {
+            setToken(response.data.token);
+            localStorage.setItem("token", response.data.token);
+            setModal(false)
+            navigate("/home")
+        } else {
+            alert(response.data.message);
+            console.error("There was an error logging in:", error);
+        }
+    }
+
     return (
         <Modal
-            {...props}
-
+            {...modalProps}
             size="md"
             aria-labelledby="contained-modal-title-vcenter"
             centered
@@ -25,24 +56,50 @@ function UserModal(props) {
                 </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <form className="login-form">
-                {modals === "Login" ? <></> : <input type="text" id="username" placeholder="Enter your Full Name" required />}
-                    <input type="text" id="username" placeholder="Enter your username or email" required />
-                    <input type="password" id="password" placeholder="Enter your password" required />
+                <form onSubmit={onLogin} className="login-form">
+                    {modals === "Login" ? null : (
+                        <input
+                            type="text"
+                            id="username"
+                            placeholder="Enter your Full Name"
+                            value={name}
+                            onChange={handleNameChange}
+                            required
+                        />
+                    )}
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={handleEmailChange}
+                        required
+                    />
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        value={password}
+                        onChange={handlePasswordChange}
+                        required
+                    />
+
                     <div className="button-container">
-                        {modals === "Login" ? <button type="submit">Login</button> : <button type="submit">Create account</button>}
+                        <button type="submit">{modals === "Sign up" ? "Create Account" : "Login"}</button>
                     </div>
                 </form>
-
             </Modal.Body>
             <Modal.Footer>
-                {
-                    modals === "Login" ? <p>Don't have an account? <Link onClick={()=>setModals("Sign up")}>Sign here</Link></p> : 
-                    <p>Already have an account? <Link onClick={()=>setModals("Login")}>Login here</Link></p>
-                }
+                {modals === "Login" ? (
+                    <p>Don't have an account? <Link onClick={() => setModals("Sign up")}>Sign up here</Link></p>
+                ) : (
+                    <p>Already have an account? <Link onClick={() => setModals("Login")}>Login here</Link></p>
+                )}
             </Modal.Footer>
         </Modal>
     );
 }
 
-export default UserModal
+export default UserModal;

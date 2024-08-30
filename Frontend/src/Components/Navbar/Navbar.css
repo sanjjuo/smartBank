@@ -21,28 +21,65 @@
     color: #ffbd39;
 }
 
-.navbar-banner .navbar-nav2 .nav-link {
+.navbar-banner .navbar-nav2{
     border: 2px solid #fff;
-    border-radius: 20px;
-    padding: 5px 30px;
+    border-radius: 10px;
+}
+
+.navbar-banner .custom-profile{
+    position: relative;
+}
+
+.navbar-banner .nav-dropdown{
+    position: absolute;
+    display: none;
+    right: 10px;
+    top: 40px;
+    z-index: 1;
+}
+
+.custom-profile:hover .nav-dropdown{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #fff;
+    width: 150px;
+    height: 100px;
+    border-radius: 4px;
+    border: 1px solid #656666;
+    outline: 2px solid #fff;
+    list-style: none;
+    padding: 0;
+}
+
+.nav-dropdown li{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.nav-dropdown li:hover{
+    color: #ffbd39;
 }
 
 
 /* navbar-other */
 
 
-.navbar-other .nav-link {
-    color: #000;
-    font-weight: 600;
-    letter-spacing: 1px;
+.navbar-other {
+   display: none;
 }
 
-.navbar-other .nav-link:hover {
+/* .navbar-other .nav-link:hover {
     color: #ffbd39;
 }
 
-.navbar-other .internet-banking {
-    border: 2px solid #000;
+.navbar-other .navbar-nav2 {
+    border: 2px solid #fff;
+    color: #fff;
     border-radius: 20px;
     padding: 5px 10px;
-}
+} */
