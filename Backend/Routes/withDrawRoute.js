@@ -1,6 +1,7 @@
 import express from "express"
-import { withDrawMoney } from "../Controller/withDrawController"
-import {authMiddleware} from "../MiddleWare/authMiddleware.js"
+import { withDrawMoney } from "../Controller/withDrawController.js"
+import authMiddleware from "../MiddleWare/authMiddleware.js"
+
 
 const withDrawRoute = express.Router()
 

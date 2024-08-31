@@ -16,6 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
   const url = "http://localhost:4000"
   const [token, setToken] = useState("");
+  const [modal, setModal] = useState(false)
 
 
   useEffect(() => {
@@ -29,9 +30,9 @@ const App = () => {
       <Router>
         <ToastContainer/>
         <ScrollToTop />
-        <MyNavbar url={url} token={token} setToken={setToken} />
+        <MyNavbar url={url} token={token} setToken={setToken} modal={modal} setModal={setModal}/>
         <Routes>
-          <Route path='/' element={<LoginPage />} />
+          <Route path='/' element={<LoginPage modal={modal} setModal={setModal} url={url} token={token} setToken={setToken}/>} />
           <Route path='/home' element={<Pages />} />
           <Route path='/payment' element={<PaymentMoney />}>
             <Route path='deposit' element={<Deposit url={url} />} />

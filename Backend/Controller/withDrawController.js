@@ -1,4 +1,4 @@
-import Withdraw from "../Model/withdrawModel";
+import Withdraw from "../Model/withdrawModel.js";
 
 const withDrawMoney = async(req,res) =>{
     const { accountNumber, withdrawAmount, paymentMethod } = req.body;

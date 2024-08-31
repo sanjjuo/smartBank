@@ -7,9 +7,8 @@ import { HiUserCircle } from 'react-icons/hi';
 import { IoSettings } from 'react-icons/io5';
 import { SlLogout } from 'react-icons/sl';
 
-const MyNavbar = ({ url, token, setToken }) => {
+const MyNavbar = ({ url, token, setToken, modal, setModal }) => {
 
-    const [modal, setModal] = useState(false)
     const location = useLocation();
     const navigate = useNavigate()
 
