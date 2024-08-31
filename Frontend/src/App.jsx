@@ -10,6 +10,8 @@ import Withdraw from './Components/Routes/WithDraw/WithDraw'
 import Balance from './Components/Routes/Balance/Balance'
 import LoginPage from './Components/UserModal/LoginPage'
 import ScrollToTop from './ScrollToTop'
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   const url = "http://localhost:4000"
@@ -25,13 +27,14 @@ const App = () => {
   return (
     <div className='app'>
       <Router>
+        <ToastContainer/>
         <ScrollToTop />
         <MyNavbar url={url} token={token} setToken={setToken} />
         <Routes>
           <Route path='/' element={<LoginPage />} />
           <Route path='/home' element={<Pages />} />
           <Route path='/payment' element={<PaymentMoney />}>
-            <Route path='deposit' element={<Deposit />} />
+            <Route path='deposit' element={<Deposit url={url} />} />
             <Route path='withdraw' element={<Withdraw />} />
             <Route path='balance' element={<Balance />} />
           </Route>

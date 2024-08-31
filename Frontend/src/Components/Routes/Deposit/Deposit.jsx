@@ -1,19 +1,41 @@
 import React, { useState } from 'react';
 import "../Deposit/Deposit.css"
+import axios from "axios"
+import { toast } from 'react-toastify';
 
-const Deposit = () => {
+const Deposit = ({url}) => {
     const [accountNumber, setAccountNumber] = useState('');
     const [accountHolderName, setAccountHolderName] = useState('');
     const [depositAmount, setDepositAmount] = useState('');
-    const [currency, setCurrency] = useState('USD');
     const [depositDate, setDepositDate] = useState('');
     const [paymentMethod, setPaymentMethod] = useState('Online Transfer');
-    const [referenceNumber, setReferenceNumber] = useState('');
-    const [notes, setNotes] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission logic here
+        try {
+            const token = localStorage.getItem("token");
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+
+            const response = await axios.post(`${url}/api/transaction/deposit`, {
+                accountNumber,
+                depositAmount,
+                depositDate,
+                paymentMethod,
+            }, config);
+
+            if (response.data.success) {
+                toast.success("successfull")
+            } else {
+                alert(response.data.message);
+            }
+        } catch (error) {
+            console.error("There was an error processing your deposit", error);
+            alert('Deposit failed. Please try again.');
+        }
     };
 
     return (
@@ -57,21 +79,6 @@ const Deposit = () => {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="currency">Currency:</label>
-                    <select
-                        id="currency"
-                        value={currency}
-                        onChange={(e) => setCurrency(e.target.value)}
-                        required
-                    >
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="INR">INR</option>
-                        {/* Add more currency options as needed */}
-                    </select>
-                </div>
-
-                <div className="form-group">
                     <label htmlFor="depositDate">Deposit Date:</label>
                     <input
                         type="date"
@@ -94,27 +101,6 @@ const Deposit = () => {
                         <option value="Cash">Cash</option>
                         <option value="Cheque">Cheque</option>
                     </select>
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="referenceNumber">Reference Number (optional):</label>
-                    <input
-                        type="text"
-                        id="referenceNumber"
-                        placeholder='Enter Reference Number'
-                        value={referenceNumber}
-                        onChange={(e) => setReferenceNumber(e.target.value)}
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="notes">Notes (optional):</label>
-                    <textarea
-                        rows={4}
-                        id="notes"
-                        value={notes}
-                        onChange={(e) => setNotes(e.target.value)}
-                    ></textarea>
                 </div>
 
                 <button type="submit">Deposit</button>

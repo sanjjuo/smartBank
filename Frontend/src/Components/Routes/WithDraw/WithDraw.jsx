@@ -56,21 +56,6 @@ const Withdraw = () => {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="currency">Currency</label>
-                    <select
-                        id="currency"
-                        value={currency}
-                        onChange={(e) => setCurrency(e.target.value)}
-                        required
-                    >
-                        <option value="USD">USD</option>
-                        <option value="EUR">EUR</option>
-                        <option value="INR">INR</option>
-                        {/* Add more currency options as needed */}
-                    </select>
-                </div>
-
-                <div className="form-group">
                     <label htmlFor="withdrawalDate">Withdrawal Date</label>
                     <input
                         type="date"
@@ -94,47 +79,6 @@ const Withdraw = () => {
                         <option value="Cheque">Cheque</option>
                         {/* Add more payment methods as needed */}
                     </select>
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="beneficiaryAccount">Beneficiary Account Number</label>
-                    <input
-                        type="text"
-                        id="beneficiaryAccount"
-                        value={beneficiaryAccount}
-                        onChange={(e) => setBeneficiaryAccount(e.target.value)}
-                        required
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="referenceNumber">Reference Number (optional)</label>
-                    <input
-                        type="text"
-                        id="referenceNumber"
-                        value={referenceNumber}
-                        onChange={(e) => setReferenceNumber(e.target.value)}
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="notes">Notes (optional)</label>
-                    <textarea
-                        id="notes"
-                        value={notes}
-                        onChange={(e) => setNotes(e.target.value)}
-                    ></textarea>
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="securityAnswer">Security Answer/Code</label>
-                    <input
-                        type="text"
-                        id="securityAnswer"
-                        value={securityAnswer}
-                        onChange={(e) => setSecurityAnswer(e.target.value)}
-                        required
-                    />
                 </div>
 
                 <button type="submit">Withdraw</button>

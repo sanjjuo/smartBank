@@ -2,8 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import connectDB from './Config/db.js';
-import authRoute from './Routes/auth.Route.js';
-import transactionRoute from './Routes/transaction.Route.js';
+import depositRoute from './Routes/depositRoute.js';
+import authRoute from './Routes/authRoute.js';
+import withDrawRoute from './Routes/withDrawRoute.js';
 
 dotenv.config();
 
@@ -20,7 +21,8 @@ app.use(express.json());
 
 // api endpoints
 app.use('/api/auth', authRoute);
-app.use('/api/transaction', transactionRoute);
+app.use('/api/transaction', depositRoute);
+app.use('/api/transaction', withDrawRoute);
 
 app.get('/', (req, res) => {
   res.send('API is running');
