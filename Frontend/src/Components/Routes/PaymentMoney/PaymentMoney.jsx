@@ -24,7 +24,7 @@ const PaymentMoney = () => {
 
                 <div className="payment-links">
                     <ul>
-                        <Link to="deposit" style={{ color: "inherit", textDecoration: "none" }} onClick={() => setLink("deposit")}
+                        <Link to="/payment" style={{ color: "inherit", textDecoration: "none" }} onClick={() => setLink("deposit")}
                             className={link === "deposit" ? "active" : ""}>
                             <li><PiHandDepositLight className='icon' />Deposit</li></Link>
 
@@ -37,13 +37,6 @@ const PaymentMoney = () => {
                             className={link === "balance" ? "active" : ""}>
                             <li><AiTwotoneBank className='icon' />Balance</li></Link>
                         <li><LiaHistorySolid className='icon' />Transaction</li>
-                    </ul>
-                </div>
-
-                <div className="settings-logout">
-                    <ul>
-                        <li><IoSettings className='icon' />Settings</li>
-                        <li><SlLogout className='icon' />Logout</li>
                     </ul>
                 </div>
             </div>

@@ -35,7 +35,7 @@ const App = () => {
           <Route path='/' element={<LoginPage modal={modal} setModal={setModal} url={url} token={token} setToken={setToken}/>} />
           <Route path='/home' element={<Pages />} />
           <Route path='/payment' element={<PaymentMoney />}>
-            <Route path='deposit' element={<Deposit url={url} />} />
+            <Route path='/payment' element={<Deposit url={url} />} />
             <Route path='withdraw' element={<Withdraw />} />
             <Route path='balance' element={<Balance />} />
           </Route>
