@@ -4,17 +4,22 @@ import { PiHandDepositLight } from "react-icons/pi";
 import { PiHandWithdraw } from "react-icons/pi";
 import { AiTwotoneBank } from "react-icons/ai";
 import { LiaHistorySolid } from "react-icons/lia";
-import { IoSettings } from "react-icons/io5";
-import { SlLogout } from "react-icons/sl";
-import { Link, Outlet } from 'react-router-dom';
+import { MdArrowBack } from "react-icons/md";
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 
 const PaymentMoney = () => {
 
     const [link, setLink] = useState("deposit")
+    const navigate = useNavigate()
+
+    const handleNavigate = () =>{
+        navigate("/home")
+    }
 
     return (
         <section className="paymentmoney-section">
             <div className="sidebar">
+            <MdArrowBack size={30} onClick={handleNavigate} style={{cursor:"pointer"}}/>
                 <div className="user-details">
                     <div className="user-image">
                         <img src="/user.jpg" alt="" />
