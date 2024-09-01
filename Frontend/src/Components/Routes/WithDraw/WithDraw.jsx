@@ -10,14 +10,14 @@ const Withdraw = ({ url, token }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         // Convert the withdrawal amount to a number
         const amount = parseFloat(withdrawalAmount);
         if (isNaN(amount) || amount <= 0) {
             toast.error("Invalid withdrawal amount");
             return;
         }
-    
+
         try {
             const token = localStorage.getItem("token");
             const config = {
@@ -25,14 +25,14 @@ const Withdraw = ({ url, token }) => {
                     Authorization: `Bearer ${token}`,
                 },
             };
-    
+
             const response = await axios.post(`${url}/api/transaction/withdraw`, {
                 accountNumber,
-                withdrawAmount: amount,  
+                withdrawAmount: amount,
                 withdrawDate: new Date().toLocaleDateString(),
                 paymentMethod,
             }, config);
-    
+
             if (response.data.success) {
                 toast.success("Money has been withdrawn");
             } else {
@@ -43,36 +43,38 @@ const Withdraw = ({ url, token }) => {
             toast.error("Withdrawal failed. Please try again.");
         }
     };
-    
+
     return (
         <section className="withdraw-section">
             <h1>Withdraw Amount</h1>
             <form className="withdraw-form" onSubmit={handleSubmit}>
                 {/* Other form fields remain the same */}
                 <div className="form-group">
-                    <label htmlFor="accountNumber">Account Number</label>
+                    <label htmlFor="accountNumber">Account Number:</label>
                     <input
                         type="number"
                         id="accountNumber"
                         value={accountNumber}
                         onChange={(e) => setAccountNumber(e.target.value)}
+                        placeholder='Enter Account Number'
                         required
                     />
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="withdrawalAmount">Withdrawal Amount</label>
+                    <label htmlFor="withdrawalAmount">Withdrawal Amount:</label>
                     <input
                         type="number"
                         id="withdrawalAmount"
                         value={withdrawalAmount}
                         onChange={(e) => setWithdrawalAmount(e.target.value)}
+                        placeholder='Enter Withdrawal Amount'
                         required
                     />
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="paymentMethod">Payment Method</label>
+                    <label htmlFor="paymentMethod">Payment Method:</label>
                     <select
                         id="paymentMethod"
                         value={paymentMethod}
@@ -84,8 +86,10 @@ const Withdraw = ({ url, token }) => {
                         <option value="Cheque">Cheque</option>
                     </select>
                 </div>
+                <div className="button-container">
+                    <button type="submit">Withdraw</button>
+                </div>
 
-                <button type="submit">Withdraw</button>
             </form>
         </section>
     );

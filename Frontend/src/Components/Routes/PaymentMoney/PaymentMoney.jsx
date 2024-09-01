@@ -12,14 +12,14 @@ const PaymentMoney = () => {
     const [link, setLink] = useState("deposit")
     const navigate = useNavigate()
 
-    const handleNavigate = () =>{
+    const handleNavigate = () => {
         navigate("/home")
     }
 
     return (
         <section className="paymentmoney-section">
             <div className="sidebar">
-            <MdArrowBack size={30} onClick={handleNavigate} style={{cursor:"pointer"}}/>
+                <h5><MdArrowBack onClick={handleNavigate}/>Go to home</h5>
                 <div className="user-details">
                     <div className="user-image">
                         <img src="/user.jpg" alt="" />

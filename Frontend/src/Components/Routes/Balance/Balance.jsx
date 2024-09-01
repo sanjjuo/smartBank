@@ -39,12 +39,15 @@ const Balance = ({ url }) => {
                     <input
                         type="text"
                         id="accountNumber"
+                        placeholder='Enter Account Number'
                         value={accountNumber}
                         onChange={(e) => setAccountNumber(e.target.value)}
                     />
                 </div>
+                <div className="button-container">
+                    <button onClick={handleBalance}>Check Balance</button>
+                </div>
 
-                <button onClick={handleBalance}>Check Balance</button>
                 {balance !== null && (
                     <div className="balance-display">
                         <p>Your balance is: <strong>₹{balance}</strong></p>

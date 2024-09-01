@@ -3,7 +3,7 @@ import "../Deposit/Deposit.css"
 import axios from "axios"
 import { toast } from 'react-toastify';
 
-const Deposit = ({url}) => {
+const Deposit = ({ url }) => {
     const [accountNumber, setAccountNumber] = useState('');
     const [depositAmount, setDepositAmount] = useState('');
     const [paymentMethod, setPaymentMethod] = useState('Online Transfer');
@@ -77,7 +77,10 @@ const Deposit = ({url}) => {
                     </select>
                 </div>
 
-                <button type="submit">Deposit</button>
+                <div className="button-container">
+                    <button type="submit">Deposit</button>
+                </div>
+
             </form>
         </section>
     );

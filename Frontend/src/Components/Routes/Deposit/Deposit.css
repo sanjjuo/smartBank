@@ -21,6 +21,7 @@
 .deposit-form .form-group{
     margin-bottom: 10px;
     display: flex;
+    align-items: center;
 }
 
 .deposit-form .form-group label{
@@ -47,10 +48,14 @@
     outline: none;
 }
 
+.deposit-form form .button-container{
+    text-align: center;
+}
+
 .deposit-form form button{
     border: none;
     margin-top: 30px;
-    width: 100%;
+    width: 30%;
     background-color: #C41E3A;
     color: #fff;
     padding: 5px;

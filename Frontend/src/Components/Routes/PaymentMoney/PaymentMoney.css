@@ -9,6 +9,17 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.paymentmoney-section .sidebar h5{
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.paymentmoney-section .sidebar h5:hover{
+    color: #C41E3A;
+}
 .sidebar .user-details{
     display: flex;
     flex-direction: column;
@@ -45,26 +56,21 @@
     color: #C41E3A;
     padding: 0px 20px;
     margin-bottom: 20px;
-    width: 180px;
     transform: scale(1);
     transition: transform 0.3s ease;
     cursor: pointer;
+    display: flex;
+    align-items: center;
 }
 
 .payment-links li:hover{
-    background-color: #c41e3a5d;
-    border-left: 5px solid #C41E3A;
-    transform: scale(1.09);
-}
-
-.payment-links li:hover .icon{
-    transform: scale(1.2);
+    background-color: #ededed;
 }
 
 .payment-links .active li{
     background-color: #c41e3a5d;
     border-left: 5px solid #C41E3A;
-    transform: scale(1.09);
+    transform: scale(1.1);
 }
 
 .payment-links li .icon{

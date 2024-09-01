@@ -21,11 +21,12 @@
 .withdraw-section .form-group{
     margin-bottom: 10px;
     display: flex;
+    align-items: center;
 }
 
 .withdraw-section .form-group label{
     font-weight: 600;
-    flex: 0 0 150px;
+    flex: 0 0 160px;
 }
 
 .withdraw-section form input,
@@ -47,10 +48,14 @@
     outline: none;
 }
 
+.withdraw-section form .button-container{
+    text-align: center;
+}
+
 .withdraw-section form button{
     border: none;
     margin-top: 30px;
-    width: 100%;
+    width: 30%;
     background-color: #C41E3A;
     color: #fff;
     padding: 5px;
