@@ -5,9 +5,7 @@ import { toast } from 'react-toastify';
 
 const Deposit = ({url}) => {
     const [accountNumber, setAccountNumber] = useState('');
-    const [accountHolderName, setAccountHolderName] = useState('');
     const [depositAmount, setDepositAmount] = useState('');
-    const [depositDate, setDepositDate] = useState('');
     const [paymentMethod, setPaymentMethod] = useState('Online Transfer');
 
     const handleSubmit = async (e) => {
@@ -22,18 +20,17 @@ const Deposit = ({url}) => {
 
             const response = await axios.post(`${url}/api/transaction/deposit`, {
                 accountNumber,
-                depositAmount,
-                depositDate,
+                depositAmount: parseFloat(depositAmount), // Ensure the amount is a number
                 paymentMethod,
             }, config);
 
             if (response.data.success) {
-                toast.success("successfull")
+                toast.success("Deposit successful");
             } else {
                 alert(response.data.message);
             }
         } catch (error) {
-            console.error("There was an error processing your deposit", error);
+            console.error("Error during deposit:", error.response ? error.response.data : error.message);
             alert('Deposit failed. Please try again.');
         }
     };
@@ -55,18 +52,6 @@ const Deposit = ({url}) => {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="accountHolderName">Account Holder Name:</label>
-                    <input
-                        type="text"
-                        id="accountHolderName"
-                        placeholder='Enter Account Holder Name'
-                        value={accountHolderName}
-                        onChange={(e) => setAccountHolderName(e.target.value)}
-                        required
-                    />
-                </div>
-
-                <div className="form-group">
                     <label htmlFor="depositAmount">Deposit Amount:</label>
                     <input
                         type="number"
@@ -74,17 +59,6 @@ const Deposit = ({url}) => {
                         placeholder='Enter Deposit Amount'
                         value={depositAmount}
                         onChange={(e) => setDepositAmount(e.target.value)}
-                        required
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="depositDate">Deposit Date:</label>
-                    <input
-                        type="date"
-                        id="depositDate"
-                        value={depositDate}
-                        onChange={(e) => setDepositDate(e.target.value)}
                         required
                     />
                 </div>

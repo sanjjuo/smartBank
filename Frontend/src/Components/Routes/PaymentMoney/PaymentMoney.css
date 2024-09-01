@@ -2,15 +2,11 @@
     display: flex
 }
 .paymentmoney-section .sidebar{
-    padding: 20px;
+    padding: 60px 20px;
     width: 15%;
     height: 100vh;
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
 }
 
 .sidebar .user-details{
@@ -40,16 +36,17 @@
     list-style: none;
     padding: 0;
     line-height: 50px;
+    margin-top: 70px;
 }
 
 .payment-links li{
     font-size: 15px;
     color: #C41E3A;
-    background-color: #fff;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    /* background-color: #fff; */
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
     padding: 0px 20px;
-    border-radius: 20px;
-    margin-bottom: 10px;
+    /* border-radius: 20px; */
+    margin-bottom: 30px;
     width: 180px;
     transform: scale(1);
     transition: transform 0.3s ease;
@@ -57,7 +54,8 @@
 }
 
 .payment-links li:hover{
-    background-color: #ededed;
+    background-color: #c41e3a5d;
+    border-left: 5px solid #C41E3A;
     transform: scale(1.09);
 }
 
@@ -66,7 +64,8 @@
 }
 
 .payment-links .active li{
-    background-color: #ededed;
+    background-color: #c41e3a5d;
+    border-left: 5px solid #C41E3A;
     transform: scale(1.09);
 }
 

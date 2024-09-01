@@ -4,7 +4,8 @@ const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  balance: { type: Number, default: 0 },
+  accountNumber: { type: String, required: true, unique: true },
+  balance: { type: Number, required: true, default: 0 },
   isAdmin: { type: Boolean, default: false },
 }, { timestamps: true });
 

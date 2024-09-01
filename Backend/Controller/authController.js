@@ -21,7 +21,7 @@ const loginUser = async (req, res) => {
             return res.json({ success: false, message: "Password is incorrect" })
         }
 
-        const token = createToken(user.id)
+        const token = createToken(user._id)
         res.json({ success: true, token })
     } catch (error) {
         console.log(error);
@@ -38,7 +38,7 @@ const createToken = (id) => {
 // register
 
 const registerUser = async (req, res) => {
-    const { name, email, password } = req.body
+    const { name,accountNumber, email, password } = req.body
     try {
 
         // checking user is exist
@@ -65,12 +65,13 @@ const registerUser = async (req, res) => {
 
         const newUser = new User({
             name: name,
+            accountNumber: accountNumber,
             email: email,
             password: hashedPassword
         })
 
         const user = await newUser.save()
-        const token = createToken(user.id)
+        const token = createToken(user._id)
         res.json({ success: true, token })
 
     } catch (error) {

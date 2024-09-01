@@ -3,6 +3,7 @@ import "../UserModal/LoginPage.css"
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { Link } from 'react-router-dom';
 import UserModal from './UserModal';
+import "../../Responsive.css"
 
 const LoginPage = ({modal, setModal, url, token, setToken}) => {
     

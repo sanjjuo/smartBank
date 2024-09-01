@@ -1,0 +1,144 @@
+@media (min-width: 320px) and (max-width: 480px) {
+    .login-page .headings h1 {
+        font-size: 26px;
+    }
+
+    .login-page .headings p {
+        font-size: 14px;
+    }
+
+    .login-page .headings button {
+        padding: 5px 10px;
+        font-size: 14px;
+    }
+
+    .navbar-toggler {
+        display: none;
+    }
+
+    /* footer */
+
+    .footer-section .first-part {
+        padding: 20px !important;
+    }
+
+    .first-part input {
+        padding: 5px 10px !important;
+        width: 69% !important;
+        border-radius: 20px !important;
+        margin-right: 5px !important;
+    }
+
+    .first-part button {
+        padding: 5px 10px !important;
+        font-size: 14px !important;
+    }
+
+    .footer-section .middle-part {
+        padding: 20px !important;
+    }
+
+    .footer-section .last-part {
+        padding: 20px !important;
+    }
+
+    .last-part p {
+        font-size: 16px !important;
+    }
+
+
+    /* banner */
+
+    .banner-section h1 {
+        font-size: 25px;
+    }
+
+    .banner-section p {
+        font-size: 16px;
+    }
+
+    .payment-section {
+        padding: 20px !important;
+    }
+
+    .payment-section .full-container {
+        padding: 20px !important;
+        width: 100% !important;
+        margin-top: -120px !important;
+    }
+
+    .payment-section .easy-payment {
+        padding: 20px !important;
+    }
+
+    .easy-payment .contents {
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .easy-payment .contents .touch-icon .icon {
+        display: none !important;
+    }
+
+    .easy-payment .contents .headings-btn h2 {
+        font-size: 22px !important;
+    }
+
+    .easy-payment .contents .headings-btn p {
+        font-size: 15px !important;
+    }
+
+    .cashback .headings h2 {
+        font-size: 22px !important;
+    }
+
+    .cashback .headings p {
+        font-size: 15px !important;
+    }
+
+    .cashback .headings {
+        padding-bottom: 20px !important;
+    }
+
+    .cashback {
+        padding: 20px !important;
+        margin-bottom: 20px;
+    }
+
+    .cashback .cashback-icon {
+        display: none;
+    }
+
+    .abroad-payment {
+        padding: 20px !important;
+    }
+
+    .abroad-payment .headings {
+        padding-bottom: 20px !important;
+    }
+
+    .abroad-payment .headings h2 {
+        font-size: 22px !important;
+    }
+
+    .abroad-payment .headings p {
+        font-size: 15px !important;
+    }
+    
+    .abroad-payment .global-icon {
+        display: none;
+    
+    }
+    .cards-section {
+        padding: 20px !important;
+    }
+    .cards-section .row {
+        margin-bottom: 30px !important;
+    }
+    .cards-section .card-details h1 {
+        font-size: 20px !important;
+    }
+    .card-details p {
+        font-size: 15px !important;
+    }
+}

@@ -36,7 +36,9 @@ const PaymentMoney = () => {
                         <Link to="balance" style={{ color: "inherit", textDecoration: "none" }} onClick={() => setLink("balance")}
                             className={link === "balance" ? "active" : ""}>
                             <li><AiTwotoneBank className='icon' />Balance</li></Link>
-                        <li><LiaHistorySolid className='icon' />Transaction</li>
+                        <Link to="transaction" style={{ color: "inherit", textDecoration: "none" }} onClick={() => setLink("transaction")}
+                            className={link === "transaction" ? "active" : ""}>
+                            <li><LiaHistorySolid className='icon' />Transaction</li></Link>
                     </ul>
                 </div>
             </div>

@@ -1,0 +1,8 @@
+.transaction-history h1{
+    font-weight: 700;
+    font-size: 30px;
+}
+
+.transaction-history .table{
+    margin-top: 50px;
+}

@@ -1,20 +1,38 @@
 import React, { useState } from 'react';
 import "../Balance/Balance.css"
+import axios from 'axios';
 
-const Balance = () => {
+const Balance = ({ url }) => {
     const [accountNumber, setAccountNumber] = useState('');
-    const [accountType, setAccountType] = useState('Savings');
-    const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('');
-    const [pin, setPin] = useState('');
+    const [balance, setBalance] = useState(null);
+    const [error, setError] = useState(null);
 
-    const handleBalance = () => {
-        // Implement balance check functionality
+    const handleBalance = async (e) => {
+        e.preventDefault();
+        try {
+            const token = localStorage.getItem("token");
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            };
+
+            const response = await axios.post(`${url}/api/transaction/balance`, { accountNumber }, config);
+
+            if (response.data.success) {
+                setBalance(response.data.balance);
+            } else {
+                setError(response.data.message);
+            }
+        } catch (error) {
+            console.error("Error fetching balance:", error);
+            setError("Unable to fetch balance. Please try again.");
+        }
     };
 
     return (
         <section className="check-balance">
-                           <h2>Check Your Balance</h2>
+            <h2>Check Your Balance</h2>
             <div className="account-details">
                 <div className="input-group">
                     <label htmlFor="accountNumber">Account Number:</label>
@@ -26,50 +44,18 @@ const Balance = () => {
                     />
                 </div>
 
-                <div className="input-group">
-                    <label htmlFor="accountType">Account Type:</label>
-                    <select
-                        id="accountType"
-                        value={accountType}
-                        onChange={(e) => setAccountType(e.target.value)}
-                    >
-                        <option value="Savings">Savings</option>
-                        <option value="Checking">Checking</option>
-                        {/* Add more account types if needed */}
-                    </select>
-                </div>
-
-                <div className="input-group">
-                    <label htmlFor="startDate">Start Date:</label>
-                    <input
-                        type="date"
-                        id="startDate"
-                        value={startDate}
-                        onChange={(e) => setStartDate(e.target.value)}
-                    />
-                </div>
-
-                <div className="input-group">
-                    <label htmlFor="endDate">End Date:</label>
-                    <input
-                        type="date"
-                        id="endDate"
-                        value={endDate}
-                        onChange={(e) => setEndDate(e.target.value)}
-                    />
-                </div>
-
-                <div className="input-group">
-                    <label htmlFor="pin">Account PIN:</label>
-                    <input
-                        type="password"
-                        id="pin"
-                        value={pin}
-                        onChange={(e) => setPin(e.target.value)}
-                    />
-                </div>
-
                 <button onClick={handleBalance}>Check Balance</button>
+                {balance !== null && (
+                    <div className="balance-display">
+                        <p>Your balance is: <strong>₹{balance}</strong></p>
+                    </div>
+                )}
+
+                {error && (
+                    <div className="error-display">
+                        <p>{error}</p>
+                    </div>
+                )}
             </div>
         </section>
     );

@@ -1,45 +1,61 @@
 import React, { useState } from 'react';
-import "../WithDraw/WithDraw.css"
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import "../WithDraw/WithDraw.css";
 
-const Withdraw = () => {
+const Withdraw = ({ url, token }) => {
     const [accountNumber, setAccountNumber] = useState('');
-    const [accountHolderName, setAccountHolderName] = useState('');
     const [withdrawalAmount, setWithdrawalAmount] = useState('');
-    const [currency, setCurrency] = useState('USD');
-    const [withdrawalDate, setWithdrawalDate] = useState('');
     const [paymentMethod, setPaymentMethod] = useState('Online Transfer');
-    const [beneficiaryAccount, setBeneficiaryAccount] = useState('');
-    const [referenceNumber, setReferenceNumber] = useState('');
-    const [notes, setNotes] = useState('');
-    const [securityAnswer, setSecurityAnswer] = useState('');
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission logic here
+    
+        // Convert the withdrawal amount to a number
+        const amount = parseFloat(withdrawalAmount);
+        if (isNaN(amount) || amount <= 0) {
+            toast.error("Invalid withdrawal amount");
+            return;
+        }
+    
+        try {
+            const token = localStorage.getItem("token");
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            };
+    
+            const response = await axios.post(`${url}/api/transaction/withdraw`, {
+                accountNumber,
+                withdrawAmount: amount,  
+                withdrawDate: new Date().toLocaleDateString(),
+                paymentMethod,
+            }, config);
+    
+            if (response.data.success) {
+                toast.success("Money has been withdrawn");
+            } else {
+                toast.error("Withdrawal failed");
+            }
+        } catch (error) {
+            console.error("Error processing withdrawal:", error);
+            toast.error("Withdrawal failed. Please try again.");
+        }
     };
-
+    
     return (
         <section className="withdraw-section">
             <h1>Withdraw Amount</h1>
             <form className="withdraw-form" onSubmit={handleSubmit}>
+                {/* Other form fields remain the same */}
                 <div className="form-group">
                     <label htmlFor="accountNumber">Account Number</label>
                     <input
-                        type="text"
+                        type="number"
                         id="accountNumber"
                         value={accountNumber}
                         onChange={(e) => setAccountNumber(e.target.value)}
-                        required
-                    />
-                </div>
-
-                <div className="form-group">
-                    <label htmlFor="accountHolderName">Account Holder Name</label>
-                    <input
-                        type="text"
-                        id="accountHolderName"
-                        value={accountHolderName}
-                        onChange={(e) => setAccountHolderName(e.target.value)}
                         required
                     />
                 </div>
@@ -56,17 +72,6 @@ const Withdraw = () => {
                 </div>
 
                 <div className="form-group">
-                    <label htmlFor="withdrawalDate">Withdrawal Date</label>
-                    <input
-                        type="date"
-                        id="withdrawalDate"
-                        value={withdrawalDate}
-                        onChange={(e) => setWithdrawalDate(e.target.value)}
-                        required
-                    />
-                </div>
-
-                <div className="form-group">
                     <label htmlFor="paymentMethod">Payment Method</label>
                     <select
                         id="paymentMethod"
@@ -77,7 +82,6 @@ const Withdraw = () => {
                         <option value="Online Transfer">Online Transfer</option>
                         <option value="Cash">Cash</option>
                         <option value="Cheque">Cheque</option>
-                        {/* Add more payment methods as needed */}
                     </select>
                 </div>
 

@@ -8,7 +8,7 @@ const withdrawSchema = new mongoose.Schema({
         required: true
     },
     accountNumber: {
-        type: Number,
+        type: String,
         required: true,
     },
     withdrawAmount: {

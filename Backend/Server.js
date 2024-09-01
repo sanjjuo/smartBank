@@ -5,6 +5,9 @@ import connectDB from './Config/db.js';
 import depositRoute from './Routes/depositRoute.js';
 import authRoute from './Routes/authRoute.js';
 import withDrawRoute from './Routes/withDrawRoute.js';
+import balanceRoute from './Routes/balanceRoute.js';
+import transactionRoute from './Routes/transactionRoute.js';
+
 
 dotenv.config();
 
@@ -23,6 +26,8 @@ app.use(express.json());
 app.use('/api/auth', authRoute);
 app.use('/api/transaction', depositRoute);
 app.use('/api/transaction', withDrawRoute);
+app.use('/api/transaction', balanceRoute)
+app.use('/api/transaction', transactionRoute)
 
 app.get('/', (req, res) => {
   res.send('API is running');

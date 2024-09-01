@@ -1,5 +1,6 @@
 import React from 'react'
 import "../Banner/Banner.css"
+import "../../Responsive.css"
 
 const Banner = () => {
     return (

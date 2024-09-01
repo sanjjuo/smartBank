@@ -11,10 +11,12 @@ function UserModal(props) {
 
     const [modals, setModals] = useState("Login");
     const [name, setName] = useState("");
+    const [accountNo, setAccountNo] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const handleNameChange = (e) => setName(e.target.value);
+    const handleAccountNoChange = (e) => setAccountNo(e.target.value);
     const handleEmailChange = (e) => setEmail(e.target.value);
     const handlePasswordChange = (e) => setPassword(e.target.value);
 
@@ -27,7 +29,7 @@ function UserModal(props) {
             newUrl += "/api/auth/register";
         }
 
-        const response = await axios.post(newUrl, { name, email, password });
+        const response = await axios.post(newUrl, { name, accountNumber: accountNo, email, password });
         if (response.data.success) {
             setToken(response.data.token);
             localStorage.setItem("token", response.data.token);
@@ -58,6 +60,7 @@ function UserModal(props) {
             <Modal.Body>
                 <form onSubmit={onLogin} className="login-form">
                     {modals === "Login" ? null : (
+                        <>
                         <input
                             type="text"
                             id="username"
@@ -66,6 +69,15 @@ function UserModal(props) {
                             onChange={handleNameChange}
                             required
                         />
+                        <input
+                            type="number"
+                            id="accountNumber"
+                            placeholder="Enter your Account number"
+                            value={accountNo}
+                            onChange={handleAccountNoChange}
+                            required
+                        />
+                        </>
                     )}
 
                     <input
