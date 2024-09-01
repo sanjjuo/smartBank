@@ -24,10 +24,13 @@ app.use(express.json());
 
 // api endpoints
 app.use('/api/auth', authRoute);
-app.use('/api/transaction', depositRoute);
-app.use('/api/transaction', withDrawRoute);
-app.use('/api/transaction', balanceRoute)
-app.use('/api/transaction', transactionRoute)
+app.use('/api/transaction', [
+  depositRoute,
+  withDrawRoute,
+  balanceRoute,
+  transactionRoute
+]);
+
 
 app.get('/', (req, res) => {
   res.send('API is running');

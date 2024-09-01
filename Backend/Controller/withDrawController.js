@@ -1,3 +1,4 @@
+import Transaction from "../Model/transactionModel.js";
 import User from "../Model/userModal.js";
 import Withdraw from "../Model/withdrawModel.js";
 
@@ -51,6 +52,19 @@ const withDrawMoney = async (req, res) => {
 
         // Save the new transaction to the database
         const savedWithDrawTransaction = await newWithDrawTransaction.save();
+
+
+        // creating corresponding withdraw transaction history record
+        const transaction = new Transaction({
+            user: userId,
+            description: "Amount is Withdrawn",
+            amount: withdrawAmount,
+            date: new Date(),
+            type: "withdrawal"
+        })
+
+        // Save the withdraw transaction history to the database
+        await transaction.save()
 
         // Send the updated balance and saved transaction back as a response
         res.status(201).json({ success: true, transaction: savedWithDrawTransaction, balance: user.balance });

@@ -43,18 +43,19 @@ const Transaction = ({ url }) => {
             <Table bordered className='table'>
                 <thead>
                     <tr>
-                        <th>Date</th>
                         <th>Description</th>
-                        <th>Amount</th>
+                        <th className='amount-th'>Amount</th>
                     </tr>
                 </thead>
                 <tbody>
                     {transactions.length > 0 ? (
                         transactions.map((transaction) => (
                             <tr key={transaction._id}>
-                                <td>{new Date(transaction.date).toLocaleDateString()}</td>
-                                <td>{transaction.description}</td>
-                                <td>{transaction.amount}</td>
+                                <td><ul>
+                                    <li>{transaction.description}</li>
+                                    <li style={{color:"#777", fontSize:"13px"}}>{new Date(transaction.date).toLocaleString()}</li>
+                                    </ul></td>
+                                <td className='amount-td'>{transaction.type === "deposit" ? `+ ₹ ${transaction.amount}`: `- ₹ ${transaction.amount}`}</td>
                             </tr>
                         ))
                     ) : (
