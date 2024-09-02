@@ -1,0 +1,126 @@
+.admin-panel-section{
+    display: flex;
+}
+
+.admin-panel-section .sidebar{
+    position: relative;
+    width: 15%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 100vh;
+    padding: 20px;
+}
+
+.sidebar h1{
+    color: #ffcd39;
+    font-size: 30px;
+}
+
+.sidebar h5{
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.sidebar .contents{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar .contents .image{
+    width: 90px;
+    height: 90px;
+    margin-top: 50px;
+}
+
+.sidebar .contents .image img{
+    width: 100%;
+    height: 100%;
+    border-radius: 99px;
+    object-fit: cover;
+}
+
+.sidebar .contents p{
+    font-weight: 600;
+    font-size: 20px;
+    color: #444444;
+}
+
+.sidebar .contents button{
+    margin-top: 60px;
+    width: 100%;
+    background-color: transparent;
+    padding: 8px;
+    border: 2px solid #ededed;
+    font-size: 20px;
+    font-weight: 600;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.sidebar .contents button:hover{
+    transform: scale(1.1);
+}
+
+.sidebar .contents button:hover .icon{
+    transform: scale(1.1);
+}
+
+.sidebar .logout-btn{
+    position: absolute;
+    bottom: 40px;
+    border: 2px solid #ededed;
+    background-color: transparent;
+    padding: 8px;
+    width: 82%;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.sidebar .logout-btn:hover{
+    transform: scale(1.1);
+}
+
+/* main-content */
+
+.admin-panel-section .main-content{
+    padding: 40px;
+    width: 100%;
+}
+
+.admin-panel-section .main-content h1{
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.admin-panel-section .main-content table{
+    width: 85%;
+    margin-top: 50px;
+}
+
+.main-content table thead tr th{
+    background-color: #444444;
+    color: #fff;
+}
+
+.main-content table thead tr th span{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.main-content table tbody tr td:last-child{
+    text-align: center;
+}

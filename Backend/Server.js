@@ -7,6 +7,7 @@ import authRoute from './Routes/authRoute.js';
 import withDrawRoute from './Routes/withDrawRoute.js';
 import balanceRoute from './Routes/balanceRoute.js';
 import transactionRoute from './Routes/transactionRoute.js';
+import adminRouter from './Routes/AdminRoute.js';
 
 
 dotenv.config();
@@ -30,6 +31,7 @@ app.use('/api/transaction', [
   balanceRoute,
   transactionRoute
 ]);
+app.use('/api/admin', adminRouter);
 
 
 app.get('/', (req, res) => {

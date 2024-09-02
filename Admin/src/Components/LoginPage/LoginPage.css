@@ -1,0 +1,78 @@
+.loginpage-section {
+    background: linear-gradient(rgba(4, 32, 84, 0.773), rgba(4, 32, 84, 0.734)),
+     url("../../../public/background.jpg")no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    overflow-y: hidden;
+}
+
+.loginpage-section .top-nav{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.loginpage-section .top-nav ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+}
+
+.loginpage-section .top-nav li:first-child{
+    color: #ffcd39;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.loginpage-section .top-nav li button{
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.loginpage-section .top-nav li button:hover{
+    background-color: #ffcd39;
+    color: #212222;
+}
+
+.loginpage-section .headings{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.loginpage-section .headings h1{
+    color: #fff;
+    font-weight: 700;
+    font-size: 70px;
+    margin: 0;
+}
+
+.loginpage-section .headings p{
+    color: #fff;
+    font-size: 25px;
+    margin: 0;
+}
+
+.loginpage-section .headings button{
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+.loginpage-section .headings button:hover{
+    background-color: #212222;
+    color: #fff;
+    cursor: pointer;
+}
