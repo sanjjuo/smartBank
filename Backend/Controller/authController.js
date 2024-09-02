@@ -31,9 +31,9 @@ const loginUser = async (req, res) => {
             // Create a new admin entry if it doesn't exist
             adminEntry = new Admin({
                 user: user._id,
-                accountNumber: user.accountNumber, // Assuming this comes from the User model
-                balance: user.balance, // Assuming this comes from the User model
-                loginIP: req.ip // Log the IP address
+                accountNumber: user.accountNumber, 
+                balance: user.balance, 
+                loginIP: req.ip 
             });
         } else {
             // Update the login time and IP address for existing admin entry
