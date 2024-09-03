@@ -9,6 +9,7 @@ import { MdAccountBalance } from "react-icons/md";
 import { RiMoneyRupeeCircleFill } from "react-icons/ri";
 import { FaUserSlash } from "react-icons/fa6";
 import { RiDeleteBin5Fill } from "react-icons/ri";
+import { toast } from 'react-toastify';
 
 const AdminPanel = ({url}) => {
   const [users, setUsers] = useState([]);
@@ -24,6 +25,22 @@ const AdminPanel = ({url}) => {
     };
     fetchLoggedInUsers();
   }, []);
+
+
+  const RemoveUser = async(id) =>{
+    console.log(id);
+    try {
+      const response = await axios.delete(`${url}/api/admin/remove_user/${id}`);
+      if(response.data.success){
+        toast.success(response.data.message)
+      }else{
+        toast.error(response.data.message)
+      }
+    } catch (error) {
+      
+    }
+    
+  }
 
   return (
     <section className="admin-panel-section">
@@ -59,7 +76,7 @@ const AdminPanel = ({url}) => {
                 <td>{user.user.name}</td>
                 <td>{user.accountNumber}</td>
                 <td>{user.balance}</td>
-                <td><RiDeleteBin5Fill /></td>
+                <td onClick={()=>RemoveUser(user._id)}><RiDeleteBin5Fill className='icon'/></td>
               </tr>
             ))}
           </tbody>

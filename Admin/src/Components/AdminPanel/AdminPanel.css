@@ -124,3 +124,8 @@
 .main-content table tbody tr td:last-child{
     text-align: center;
 }
+
+.main-content table tbody tr td:last-child .icon:hover{
+    color: #ffcd39;
+    cursor: pointer;
+}

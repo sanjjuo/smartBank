@@ -11,6 +11,7 @@ const loginUser = async (req, res) => {
     const { email, password } = req.body;
     try {
         const user = await User.findOne({ email })
+        console.log('User login attempt:', user);
 
         if (!user) {
             return res.json({ success: false, message: "User doesn't exist" })

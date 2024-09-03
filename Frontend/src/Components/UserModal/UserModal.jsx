@@ -6,7 +6,7 @@ import axios from "axios";
 
 function UserModal(props) {
 
-    const {setModal, url, token, setToken, ...modalProps} =props
+    const { setModal, url, token, setToken, ...modalProps } = props
     const navigate = useNavigate()
 
     const [modals, setModals] = useState("Login");
@@ -31,10 +31,14 @@ function UserModal(props) {
 
         const response = await axios.post(newUrl, { name, accountNumber: accountNo, email, password });
         if (response.data.success) {
-            setToken(response.data.token);
-            localStorage.setItem("token", response.data.token);
-            setModal(false)
-            navigate("/home")
+            if (modals === "Sign up") {
+                setModals("Login")
+            } else {
+                setToken(response.data.token);
+                localStorage.setItem("token", response.data.token);
+                setModal(false)
+                navigate("/home")
+            }
         } else {
             alert(response.data.message);
             console.error("There was an error logging in:", error);
@@ -61,22 +65,22 @@ function UserModal(props) {
                 <form onSubmit={onLogin} className="login-form">
                     {modals === "Login" ? null : (
                         <>
-                        <input
-                            type="text"
-                            id="username"
-                            placeholder="Enter your Full Name"
-                            value={name}
-                            onChange={handleNameChange}
-                            required
-                        />
-                        <input
-                            type="number"
-                            id="accountNumber"
-                            placeholder="Enter your Account number"
-                            value={accountNo}
-                            onChange={handleAccountNoChange}
-                            required
-                        />
+                            <input
+                                type="text"
+                                id="username"
+                                placeholder="Enter your Full Name"
+                                value={name}
+                                onChange={handleNameChange}
+                                required
+                            />
+                            <input
+                                type="number"
+                                id="accountNumber"
+                                placeholder="Enter your Account number"
+                                value={accountNo}
+                                onChange={handleAccountNoChange}
+                                required
+                            />
                         </>
                     )}
 
