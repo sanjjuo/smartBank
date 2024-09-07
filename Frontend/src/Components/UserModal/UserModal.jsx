@@ -28,22 +28,27 @@ function UserModal(props) {
         } else {
             newUrl += "/api/auth/register";
         }
-
-        const response = await axios.post(newUrl, { name, accountNumber: accountNo, email, password });
-        if (response.data.success) {
-            if (modals === "Sign up") {
-                setModals("Login")
+    
+        try {   
+            const response = await axios.post(newUrl, { name, accountNumber: accountNo, email, password });
+            if (response.data.success) {
+                if (modals === "Sign up") {
+                    setModals("Login");
+                } else {
+                    setToken(response.data.token);
+                    localStorage.setItem("token", response.data.token);
+                    setModal(false);
+                    navigate("/home");
+                }
             } else {
-                setToken(response.data.token);
-                localStorage.setItem("token", response.data.token);
-                setModal(false)
-                navigate("/home")
+                alert(response.data.message);
             }
-        } else {
-            alert(response.data.message);
+        } catch (error) {
             console.error("There was an error logging in:", error);
+            alert("An error occurred. Please try again.");
         }
     }
+    
 
     return (
         <Modal

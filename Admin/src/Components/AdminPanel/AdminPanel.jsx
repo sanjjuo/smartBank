@@ -33,6 +33,8 @@ const AdminPanel = ({url}) => {
       const response = await axios.delete(`${url}/api/admin/remove_user/${id}`);
       if(response.data.success){
         toast.success(response.data.message)
+              // Update the users state to remove the deleted user
+      setUsers((prevUsers) => prevUsers.filter(user => user._id !== id));
       }else{
         toast.error(response.data.message)
       }
@@ -73,7 +75,7 @@ const AdminPanel = ({url}) => {
             {users.map((user, index) => (
               <tr key={user._id}>
                 <td>{index + 1}</td>
-                <td>{user.user.name}</td>
+                <td>{user.name}</td>
                 <td>{user.accountNumber}</td>
                 <td>{user.balance}</td>
                 <td onClick={()=>RemoveUser(user._id)}><RiDeleteBin5Fill className='icon'/></td>

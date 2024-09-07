@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import "../Deposit/Deposit.css"
 import axios from "axios"
 import { toast } from 'react-toastify';
+import "../../../Responsive.css"
 
 const Deposit = ({ url }) => {
     const [accountNumber, setAccountNumber] = useState('');

@@ -1,15 +1,15 @@
 @media (min-width: 320px) and (max-width: 480px) {
     .login-page .headings h1 {
-        font-size: 26px;
+        font-size: 26px !important;
     }
 
     .login-page .headings p {
-        font-size: 14px;
+        font-size: 14px !important;
     }
 
     .login-page .headings button {
-        padding: 5px 10px;
-        font-size: 14px;
+        padding: 5px 10px !important;
+        font-size: 14px !important;
     }
 
     .navbar-toggler {
@@ -20,17 +20,21 @@
 
     .footer-section .first-part {
         padding: 20px !important;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
     .first-part input {
-        padding: 5px 10px !important;
-        width: 69% !important;
+        padding: 10px 20px !important;
+        font-size: 14px;
+        width: 100% !important;
         border-radius: 20px !important;
         margin-right: 5px !important;
     }
 
     .first-part button {
-        padding: 5px 10px !important;
+        padding: 10px !important;
         font-size: 14px !important;
     }
 
@@ -124,21 +128,171 @@
     .abroad-payment .headings p {
         font-size: 15px !important;
     }
-    
+
     .abroad-payment .global-icon {
         display: none;
-    
+
     }
+
     .cards-section {
         padding: 20px !important;
     }
+
     .cards-section .row {
         margin-bottom: 30px !important;
     }
+
     .cards-section .card-details h1 {
         font-size: 20px !important;
     }
+
     .card-details p {
         font-size: 15px !important;
+    }
+
+    /* mobile-section */
+
+    .paymentmoney-section {
+        display: none !important;
+    }
+
+    .mobile-section {
+        display: block;
+    }
+
+    .mobile-section .paymentMoney-navbar {
+        background: #fff;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        width: 100%;
+    }
+
+    .mobile-section .paymentMoney-navbar .navbar-nav {
+        gap: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .mobile-section .paymentMoney-navbar img {
+        width: 37px;
+        height: 37px;
+        object-fit: cover;
+        border-radius: 99px;
+    }
+
+    .paymentMoney-navbar .navbar-nav .nav-link {
+        color: #000;
+        display: flex;
+        font-size: 14px;
+        font-weight: 700;
+        padding: 0;
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+    }
+
+    .paymentMoney-navbar .navbar-nav .nav-link:hover {
+        color: #C41E3A;
+        border-bottom: 2px solid #C41E3A;
+    }
+
+    .paymentMoney-navbar .navbar-nav .active{
+        transform: scale(1);
+        color: #C41E3A;
+        border-bottom: 2px solid #C41E3A;
+    }
+
+    /* deposit */
+    .deposit-form {
+        padding: 50px 20px !important;
+    }
+
+    .deposit-form h1 {
+        font-size: 25px;
+    }
+
+    .deposit-form form {
+        margin-top: 20px !important;
+        padding: 20px !important;
+        width: 100% !important;
+    }
+
+    .deposit-form .form-group label {
+        display: none;
+    }
+
+    .deposit-form form button {
+        width: 50% !important;
+    }
+
+
+    /* withdraw */
+
+    .withdraw-section {
+        padding: 50px 20px !important;
+    }
+
+    .withdraw-section h1{
+        font-size: 25px;
+    }
+
+    .withdraw-section form {
+        margin-top: 20px !important;
+        padding: 20px !important;
+        width: 100% !important;
+    }
+
+    .withdraw-section .form-group label {
+        display: none;
+    }
+
+    .withdraw-section form button {
+        width: 50% !important;
+    }
+
+    /* balance */
+
+    .check-balance {
+        padding: 50px 20px !important;
+    }
+
+    .check-balance h2 {
+        font-size: 25px;
+        margin: 0 !important;
+    }
+
+    .check-balance .account-details {
+        margin-top: 20px !important;
+        padding: 20px !important;
+        width: 100% !important;
+    }
+
+    .account-details .input-group label {
+        display: none;
+    }
+
+    .check-balance button {
+        width: 50% !important;
+    }
+
+    /* transaction */
+
+    .transaction-history{
+        padding: 50px 20px !important;
+    }
+
+    .transaction-history h1{
+        margin: 0;
+        font-size: 25px !important;
+    }
+
+    .transaction-history .table {
+        margin-top: 20px !important;
+        width: 100% !important;
+    }
+    .transaction-history .table thead tr th {
+        padding: 10px !important;
+    }
+
+    .transaction-history .table tbody tr td {
+        padding: 10px !important;
     }
 }

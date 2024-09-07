@@ -25,7 +25,7 @@ const MyNavbar = ({ url, token, setToken, modal, setModal }) => {
 
     return (
         <div>
-            <Navbar expand="lg" className={`navbar ${isBannerPage || isLoginPage ? "navbar-banner" : "navbar-other"}`}>
+            <Navbar expand="lg" className={`navbar-home ${isBannerPage || isLoginPage ? "navbar-banner" : "navbar-other"}`}>
                 <Container>
                     <Navbar.Brand as={Link} to="/" style={{ fontWeight: 800, color: "#ffbd39" }}>smartbank</Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />

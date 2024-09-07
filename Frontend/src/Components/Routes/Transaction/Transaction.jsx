@@ -3,6 +3,7 @@ import "../Transaction/Transaction.css";
 import Table from 'react-bootstrap/Table';
 import axios from 'axios';
 import { toast } from 'react-toastify';
+import "../../../Responsive.css"
 
 const Transaction = ({ url }) => {
     const [transactions, setTransactions] = useState([]);

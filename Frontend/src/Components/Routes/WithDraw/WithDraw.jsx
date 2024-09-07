@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import "../WithDraw/WithDraw.css";
+import "../../../Responsive.css"
 
 const Withdraw = ({ url, token }) => {
     const [accountNumber, setAccountNumber] = useState('');

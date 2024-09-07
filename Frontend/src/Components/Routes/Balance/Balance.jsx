@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import "../Balance/Balance.css"
 import axios from 'axios';
+import "../../../Responsive.css"
 
 const Balance = ({ url }) => {
     const [accountNumber, setAccountNumber] = useState('');
